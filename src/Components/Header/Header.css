@@ -1,0 +1,15 @@
+.menu-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #1C2B35 ;
+}
+.logo h2{
+    color: #fff;
+}
+.menu a{
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 10px;
+    color: #fff;
+}

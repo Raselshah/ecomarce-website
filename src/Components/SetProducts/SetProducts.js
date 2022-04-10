@@ -2,7 +2,7 @@ import React from "react";
 import "./SetProducts.css";
 
 const SetProducts = ({ product, counterOrderButton }) => {
-  const { id, name, img, seller, price, ratings } = product;
+  const {  name, img, seller, price, ratings } = product;
   return (
     <div className="product">
       <div className="product-info">
@@ -19,7 +19,7 @@ const SetProducts = ({ product, counterOrderButton }) => {
           <small>Rating : {ratings}</small>
         </p>
       </div>
-      <button onClick={() => counterOrderButton(id)} className="product-button">
+      <button onClick={() => counterOrderButton(product)} className="product-button">
         Add to Cart
       </button>
     </div>

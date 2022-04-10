@@ -1,5 +1,7 @@
 import { useState } from "react";
 import LoadProducts from "../../hooks/ProductsData";
+import { addToDb } from "../../utilities/fakedb";
+import OrdersCart from "../OrdersCart/OrdersCart";
 import SetProducts from "../SetProducts/SetProducts";
 import "./Products.css";
 const Products = () => {
@@ -9,12 +11,13 @@ const Products = () => {
   const counterOrderButton = (products) => {
     const newCart = [...orderCart, products];
     setOrderCart(newCart);
+    addToDb(products.id);
   };
+  console.log(orderCart);
 
   const removeCart = () => {
     setOrderCart([]);
   };
-  console.log(orderCart);
   return (
     <div className="products-container">
       <div className="products">
@@ -30,11 +33,7 @@ const Products = () => {
         <h2 className="order-summary">Order Summary</h2>
 
         <div className="orders">
-          <p>Selected Items: {orderCart.length}</p>
-          <p>Total Price: </p>
-          <p>Total Shipping Charge: </p>
-          <p>Tax: </p>
-          <p>Grand Total: </p>
+          <OrdersCart orderCart={orderCart}></OrdersCart>
         </div>
 
         <div className="order-button">

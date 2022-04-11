@@ -18,7 +18,10 @@ const Home = () => {
           </p>
         </div>
 
-        <button onClick={() => navigate("/products")} className="content-button">
+        <button
+          onClick={() => navigate("/products")}
+          className="content-button"
+        >
           SHOP NOW
         </button>
       </div>

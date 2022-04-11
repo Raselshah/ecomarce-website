@@ -1,0 +1,15 @@
+.notFound{
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+.notFound h2{
+    font-weight: 300;
+    font-size: 30px;
+    padding: 0 20px;
+}
+.notLine{
+    border: 1px solid orange;
+    height: 30px;
+}

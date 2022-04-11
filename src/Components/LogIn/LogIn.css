@@ -4,16 +4,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
     width: 400px;
     box-shadow: 0px 5px 5px rgba(122, 217, 255, 0.494);
-    margin-top: 50px;
     margin: auto;
     border-radius: 10px;
     border-top-left-radius: 150px;
 }
 .email{
-    padding: 10px;
+    padding: 5px;
     flex-direction: column;
     display: flex;
 }
@@ -21,13 +20,22 @@
     padding: 7px 20px;
     font-size: 18px;
     border-radius: 10px;
-    border: 1px solid lightgrey
+    border: 1px solid lightgrey;
+    margin-bottom: 0;
+}
+.email p{
+    margin: 0;
+    padding: 0;
+}
+.password p{
+    margin: 0;
+    padding: 0;
 }
 .password{
-    padding: 10px;
+    padding: 5px;
     flex-direction: column;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .password input {
     padding: 7px 20px;

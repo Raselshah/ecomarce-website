@@ -1,23 +1,39 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LoadProducts from "../../hooks/ProductsData";
-import { addToDb } from "../../utilities/fakedb";
+import useCart from "../../hooks/useCart";
+import { addToDb, removeFromDb } from "../../utilities/fakedb";
 import OrdersCart from "../OrdersCart/OrdersCart";
 import SetProducts from "../SetProducts/SetProducts";
 import "./Products.css";
 const Products = () => {
   const [products] = LoadProducts();
-  const [orderCart, setOrderCart] = useState([]);
+  const navigate = useNavigate();
 
-  const counterOrderButton = (products) => {
-    const newCart = [...orderCart, products];
+  const counterOrderButton = (selectedProducts) => {
+    let newCart = [];
+    const exists = orderCart.find((pd) => pd.id === selectedProducts.id);
+    if (!exists) {
+      selectedProducts.quantity = 1;
+      newCart = [...orderCart, selectedProducts];
+    } else {
+      const rest = orderCart.filter((pd) => pd.id !== selectedProducts.id);
+      exists.quantity = exists.quantity + 1;
+      newCart = [...rest, exists];
+    }
+
     setOrderCart(newCart);
-    addToDb(products.id);
+    addToDb(selectedProducts.id);
   };
-  console.log(orderCart);
 
-  const removeCart = () => {
+  const [orderCart, setOrderCart] = useCart(products);
+
+  const removeCart = (products) => {
     setOrderCart([]);
+    for (const product of products) {
+      removeFromDb(product.id);
+    }
   };
+
   return (
     <div className="products-container">
       <div className="products">
@@ -37,10 +53,12 @@ const Products = () => {
         </div>
 
         <div className="order-button">
-          <button onClick={removeCart} className="clear-button">
+          <button onClick={() => removeCart(products)} className="clear-button">
             Clear Cart
           </button>
-          <button className="review-button">Review Order</button>
+          <button onClick={() => navigate("/order")} className="review-button">
+            Review Order
+          </button>
         </div>
       </div>
     </div>

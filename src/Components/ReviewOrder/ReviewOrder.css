@@ -1,0 +1,42 @@
+.review-item{
+    border: 1px solid gray;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review-photo{
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+}
+.item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.review-price span,.review-shipping span{
+    color: orange;
+}
+.review-title,.review-price,.review-shipping,.review-quantity{
+    margin: 2px 10px;
+    padding: 0;
+}
+.remove-button{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 0;
+    font-size: 30px;
+    background-color: rgba(235, 87, 87, 0.30);
+    color: #EB5757;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.remove-button:hover{
+    font-size: 35px;
+}
